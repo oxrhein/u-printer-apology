@@ -12,15 +12,17 @@ import os
 MAX_CHARS = 120
 OUTPUT_NAME = "entry.txt"
 
-APOLOGY = (
-    "Sorry I jammed on deadline day — you feed me cheap paper, swear at "
-    "me, and still expect miracles on empty toner."
-)
+def raw_apology():
+    """Return the printer's apology as written, before normalisation."""
+    return (
+        "Sorry I jammed on deadline day — you feed me cheap paper, swear at "
+        "me, and still expect miracles on empty toner."
+    )
 
 
 def build_apology():
     """Return the apology line, enforcing the 120-character gate."""
-    line = " ".join(APOLOGY.split())
+    line = " ".join(raw_apology().split())
     if not line:
         raise SystemExit("apology line is empty")
     if len(line) > MAX_CHARS:
